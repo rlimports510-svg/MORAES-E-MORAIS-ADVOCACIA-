@@ -9,7 +9,7 @@ const testimonials = [
     id: 1,
     name: "Fernanda Costa",
     role: "Empresária",
-    text: "O Dr. Rafael resolveu um contrato que parecia impossível de rescisão. Profissionalismo e clareza em cada etapa do processo. Recomendo sem hesitar.",
+    text: "O Dr. Frederico Moraes resolveu um contrato que parecia impossível de rescisão. Profissionalismo e clareza em cada etapa do processo. Recomendo sem hesitar.",
     rating: 5,
     specialty: "Direito Civil",
   },
@@ -17,7 +17,7 @@ const testimonials = [
     id: 2,
     name: "Roberto Almeida",
     role: "Aposentado",
-    text: "Tentei minha aposentadoria sozinho por anos. Com o Dr. Marcos, consegui em 4 meses e ainda com revisão do valor. Atendimento excepcional.",
+    text: "Tentei minha aposentadoria sozinho por anos. Com a Dra. Raissa Moraes, consegui em 4 meses e ainda com revisão do valor. Atendimento excepcional.",
     rating: 5,
     specialty: "Direito Previdenciário",
   },
@@ -25,7 +25,7 @@ const testimonials = [
     id: 3,
     name: "Juliana Mendes",
     role: "Professora",
-    text: "Fui vítima de um golpe bancário e achei que havia perdido tudo. A Dra. Ana conseguiu recuperar meu dinheiro e ainda processar o banco. Incrível.",
+    text: "Fui vítima de um golpe bancário e achei que havia perdido tudo. A Dra. Eduarda Morais conseguiu recuperar meu dinheiro e ainda processar o banco. Incrível.",
     rating: 5,
     specialty: "Direito Digital",
   },
@@ -33,7 +33,7 @@ const testimonials = [
     id: 4,
     name: "Paulo Rodrigues",
     role: "Comerciante",
-    text: "Minha conta foi bloqueada e eu não sabia o que fazer. O Dr. Carlos agiu rápido e em 48h o bloqueio foi revertido. Salvou meu negócio.",
+    text: "Minha conta foi bloqueada e eu não sabia o que fazer. O Dr. Vladimir Morais agiu rápido e em 48h o bloqueio foi revertido. Salvou meu negócio.",
     rating: 5,
     specialty: "Direito do Executado",
   },
@@ -41,9 +41,17 @@ const testimonials = [
     id: 5,
     name: "Família Souza",
     role: "Família de assistido",
-    text: "A Dra. Patrícia tratou nosso familiar com dignidade e competência. Conseguiu a progressão de regime que parecia impossível. Gratidão eterna.",
+    text: "O Dr. Rodrigo Moraes tratou nosso familiar com dignidade e competência. Conseguiu a progressão de regime que parecia impossível. Gratidão eterna.",
     rating: 5,
-    specialty: "Remição de Pena",
+    specialty: "Direito Criminal",
+  },
+  {
+    id: 6,
+    name: "Marcelo Santos",
+    role: "Diretor Comercial",
+    text: "O Dr. Vinicius Morais garantiu todos os meus direitos trabalhistas após anos de dedicação na empresa. Atendimento impecável e estratégico.",
+    rating: 5,
+    specialty: "Direito Trabalhista",
   },
 ];
 
@@ -148,33 +156,35 @@ export default function SocialProofSection() {
 
         {/* Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
-          {testimonials.slice(0, 3).map((t) => (
+          {testimonials.map((t) => (
             <div
               key={t.id}
-              className="animate-on-scroll card-premium bg-white rounded-2xl p-7 border border-gray-100"
+              className="animate-on-scroll card-premium bg-white rounded-2xl p-7 border border-gray-100 flex flex-col justify-between"
             >
-              {/* Quote icon */}
-              <div className="mb-4">
-                <Quote size={24} className="text-gray-200" />
-              </div>
+              <div>
+                {/* Quote icon */}
+                <div className="mb-4">
+                  <Quote size={24} className="text-gray-200" />
+                </div>
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
-                ))}
-              </div>
+                {/* Stars */}
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: t.rating }).map((_, i) => (
+                    <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
 
-              {/* Text */}
-              <p
-                className="text-gray-600 text-sm leading-relaxed mb-6"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                "{t.text}"
-              </p>
+                {/* Text */}
+                <p
+                  className="text-gray-600 text-sm leading-relaxed mb-6"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  "{t.text}"
+                </p>
+              </div>
 
               {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-100 mt-auto">
                 <div
                   className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
                   style={{ backgroundColor: "#0F2044" }}
@@ -192,44 +202,6 @@ export default function SocialProofSection() {
                     className="text-gray-400 text-xs"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
-                    {t.role} · {t.specialty}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* More testimonials row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 stagger-children">
-          {testimonials.slice(3).map((t) => (
-            <div
-              key={t.id}
-              className="animate-on-scroll card-premium bg-white rounded-2xl p-7 border border-gray-100"
-            >
-              <div className="flex gap-1 mb-3">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} size={13} className="fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <p
-                className="text-gray-600 text-sm leading-relaxed mb-5"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                "{t.text}"
-              </p>
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                  style={{ backgroundColor: "#0F2044" }}
-                >
-                  {t.name.charAt(0)}
-                </div>
-                <div>
-                  <div className="text-[#0F2044] font-semibold text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
-                    {t.name}
-                  </div>
-                  <div className="text-gray-400 text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
                     {t.role} · {t.specialty}
                   </div>
                 </div>
