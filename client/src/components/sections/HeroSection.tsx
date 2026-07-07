@@ -72,6 +72,16 @@ export default function HeroSection() {
             </span>
           </h1>
 
+          {/* Highlight Phrase */}
+          <div className="border-l-4 border-[#3B82F6] pl-4 py-1 my-4">
+            <p
+              className="text-white text-lg md:text-xl font-medium tracking-wide italic"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              Escritório familiar dos descendentes de Ailton R. Morais
+            </p>
+          </div>
+
           {/* Subtitle */}
           <p
             className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl"
